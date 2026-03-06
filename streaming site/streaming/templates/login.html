@@ -10,8 +10,14 @@
         <h1 style="color: #E50914;">BOLLYFLIX</h1>
         <form method="POST">
             {% csrf_token %}
-            <input type="text" name="username" placeholder="Enter your name" required 
+            {% if error %}
+            <div style="color: #ff6b6b; margin-bottom: 10px;">{{ error }}</div>
+            {% endif %}
+            <input type="text" name="username" placeholder="Username" required 
                    style="padding: 10px; width: 100%; margin-bottom: 20px; border-radius: 4px; border: none;">
+            <br>
+            <input type="password" name="password" placeholder="Password" required 
+                   style="padding: 10px; width: 100%; margin: 20px 0; border-radius: 4px; border: none;">
             <br>
             <button type="submit" class="logout-btn" style="width: 100%; padding: 10px; border: none; cursor: pointer;">
                 Sign In

@@ -1,7 +1,15 @@
-<body style="text-align: center; padding-top: 100px; color: white; font-family: sans-serif;">
-    <h1>Thank you for subscribing!</h1>
-    <p>Redirecting you back to the movies...</p>
-    <script>
-        setTimeout(() => { window.location.href = "/"; }, 2000);
-    </script>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href="{% static 'streaming/css/styles.css' %}">
+</head>
+<body style="background-color: #141414; color: white; font-family: sans-serif; text-align: center; padding-top: 100px;">
+    
+    <h1>Payment Complete!</h1>
+    <p>Thank you for subscribing to BollyFlix. You can now enjoy premium content.</p>
+    <p><a href="{% url 'home' %}" style="color: #E50914;">Return to Home</a></p>
 </body>
+</html>
