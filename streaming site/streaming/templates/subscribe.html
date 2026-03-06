@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'streaming/css/styles.css' %}">
+</head>
+<body style="text-align: center; padding-top: 100px;">
+    <div class="pay-card" style="display: inline-block;">
+        <h2>Subscribe to Watch</h2>
+        <form action="/process-payment/" method="POST">
+            {% csrf_token %}
+            <input type="text" placeholder="Enter UPI ID" required style="padding: 10px; width: 250px;">
+            <br><br>
+            <button type="submit" class="logout-btn" style="border: none; cursor: pointer;">Pay Now</button>
+        </form>
+    </div>
+</body>
+</html>

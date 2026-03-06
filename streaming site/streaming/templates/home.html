@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bollywood Stream</title>
+    <link rel="stylesheet" href="{% static 'streaming/css/styles.css' %}">
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">BOLLYFLIX</a>
+        <div>
+            <span style="margin-right: 20px;">Welcome, {{ request.session.user }}</span>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Trending Now</h1>
+        <div class="movie-grid">
+            {% for movie in movies %}
+            <div class="movie-card">
+                <a href="/movie/{{ movie.id }}/">
+                    <img src="{{ movie.image_url }}" alt="{{ movie.title }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

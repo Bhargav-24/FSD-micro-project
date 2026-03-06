@@ -1,0 +1,107 @@
+/* General Page Styling */
+body {
+    background-color: #141414; /* Netflix Signature Black */
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: #E50914; /* Netflix Red */
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.logout-btn {
+    background-color: #E50914;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* Movie Grid Setup */
+.container {
+    padding: 0 4% 50px 4%;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+/* Movie Card Effects */
+.movie-card {
+    position: relative;
+    transition: transform 0.4s ease;
+    cursor: pointer;
+}
+
+.movie-card img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.movie-card:hover {
+    transform: scale(1.08);
+    z-index: 5;
+}
+
+/* Detail Page / Paywall Styling */
+.detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.pay-card {
+    background: #222;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.pay-card h2 {
+    margin-bottom: 10px;
+}
+
+.pay-card p {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* Login Form Styling */
+.login-box {
+    width: 300px;
+    margin: 100px auto;
+    background: rgba(0,0,0,0.75);
+    padding: 60px;
+    border-radius: 4px;
+}

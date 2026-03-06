@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'streaming/css/styles.css' %}">
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+</head>
+<body>
+    <div class="detail-container">
+        <div class="pay-card">
+            <h2>Premium Content</h2>
+            <p>Subscribe for just **$2.00** to unlock this movie and the entire Bollywood library.</p>
+            
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{ amount: { value: '2.00' } }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    fetch('/payment-success/', {
+                        method: 'POST',
+                        headers: {'X-CSRFToken': '{{ csrf_token }}'}
+                    }).then(() => {
+                        window.location.href = "/movie/1/"; // Redirect to trigger Rick Roll
+                    });
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+</body>
+</html>
